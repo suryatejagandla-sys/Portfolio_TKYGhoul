@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-ghoul-black: #0a0a0a;
+  --color-ghoul-red: #ff003c;
+  --color-ghoul-crimson: #8b0000;
+  --color-ghoul-glow: rgba(255, 0, 60, 0.5);
+}
+
+@layer base {
+  body {
+    @apply bg-ghoul-black text-white selection:bg-ghoul-red selection:text-white;
+  }
+
+  /* Force hide the default browser cursor on all elements */
+  *, *::before, *::after {
+    cursor: none !important;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/5 backdrop-blur-md border border-white/10;
+  }
+  
+  .neon-border {
+    @apply border border-ghoul-red shadow-[0_0_15px_rgba(255,0,60,0.3)];
+  }
+
+  .neon-text {
+    @apply text-ghoul-red drop-shadow-[0_0_8px_rgba(255,0,60,0.8)];
+  }
+
+  .neon-glow {
+    @apply shadow-[0_0_20px_rgba(255,0,0,0.4)];
+  }
+
+  .animate-scanline {
+    animation: scanline 4s linear infinite;
+  }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(200%); }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ff003c;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8b0000;
+}
