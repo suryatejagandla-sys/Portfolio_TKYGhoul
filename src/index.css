@@ -66,8 +66,3 @@
   background: #8b0000;
 }
 
-    canvas, .constellation-container {
-  transform: translateZ(0);
-  will-change: transform;
-  backface-visibility: hidden;
-}
