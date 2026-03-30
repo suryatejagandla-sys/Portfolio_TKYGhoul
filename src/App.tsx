@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { FileText } from 'lucide-react';
 
 // Components
@@ -7,8 +7,6 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ScrollProgress from './components/ScrollProgress';
 import Background from './components/Background';
-import CustomCursor from './components/CustomCursor';
-
 
 // Lazy loaded sections for performance
 const About = lazy(() => import('./components/About'));
@@ -37,33 +35,17 @@ const FloatingResume = () => (
   </motion.a>
 );
 
-const LoadingScreen = () => (
-  <div className="fixed inset-0 bg-ghoul-black flex flex-col items-center justify-center z-[9999]">
-    <motion.div
-      animate={{
-        scale: [1, 1.2, 1],
-        rotate: [0, 180, 360],
-      }}
-      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-      className="w-16 h-16 border-4 border-ghoul-red border-t-transparent rounded-full mb-4"
-    />
-    <p className="text-ghoul-red font-bold tracking-widest animate-pulse">LOADING...</p>
-  </div>
-);
-
 export default function App() {
   return (
     <div className="relative min-h-screen bg-ghoul-black text-white selection:bg-ghoul-red selection:text-white overflow-x-hidden">
-      <CustomCursor />
       <Background />
-      <CentipedeBackground />
       <ScrollProgress />
       <Navbar />
       
       <main>
         <Hero />
         
-        <Suspense fallback={<div className="h-screen" />}>
+        <Suspense fallback={<div className="h-screen bg-ghoul-black flex items-center justify-center text-ghoul-red">Loading...</div>}>
           <About />
           <ConstellationSkills />
           <Projects />
