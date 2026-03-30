@@ -14,11 +14,6 @@
   body {
     @apply bg-ghoul-black text-white selection:bg-ghoul-red selection:text-white;
   }
-
-  /* Force hide the default browser cursor on all elements */
-  *, *::before, *::after {
-    cursor: none !important;
-  }
 }
 
 @layer utilities {
