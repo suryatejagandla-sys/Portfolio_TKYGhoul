@@ -8,7 +8,7 @@ import Hero from './components/Hero';
 import ScrollProgress from './components/ScrollProgress';
 import Background from './components/Background';
 import CustomCursor from './components/CustomCursor';
-import CentipedeBackground from './components/CentipedeBackground';
+
 
 // Lazy loaded sections for performance
 const About = lazy(() => import('./components/About'));
